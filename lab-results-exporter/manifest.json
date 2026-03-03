@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Lab Results Exporter - Manage My Health",
+  "version": "1.0",
+  "description": "Export lab results from Manage My Health as CSV or XML",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://app.managemyhealth.co.nz/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://app.managemyhealth.co.nz/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}

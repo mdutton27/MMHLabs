@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Results Exporter</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      width: 320px;
+      padding: 16px;
+      margin: 0;
+      background: #f8f9fa;
+    }
+    h1 {
+      font-size: 16px;
+      color: #e67e00;
+      margin: 0 0 4px 0;
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .status-box {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: #444;
+      min-height: 40px;
+    }
+    .status-box.error { border-color: #e74c3c; background: #fdf2f2; color: #c0392b; }
+    .status-box.success { border-color: #27ae60; background: #f2fdf6; color: #1e8449; }
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #e0e0e0;
+      border-radius: 3px;
+      margin: 8px 0;
+      display: none;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: #e67e00;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 8px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-primary { background: #e67e00; color: white; }
+    .btn-primary:hover:not(:disabled) { background: #cf6d00; }
+    .btn-csv { background: #27ae60; color: white; }
+    .btn-csv:hover:not(:disabled) { background: #1e8449; }
+    .btn-xml { background: #2980b9; color: white; }
+    .btn-xml:hover:not(:disabled) { background: #2471a3; }
+    .divider { border: none; border-top: 1px solid #e0e0e0; margin: 12px 0; }
+    .stat { font-size: 11px; color: #666; margin-top: 4px; }
+    #exportSection { display: none; }
+    .record-count { font-weight: bold; color: #e67e00; }
+  </style>
+</head>
+<body>
+  <h1>🧪 Lab Results Exporter</h1>
+  <p class="subtitle">Manage My Health — Export lab results</p>
+
+  <div class="status-box" id="statusBox">
+    Click "Collect All Results" to start gathering your lab data from all pages.
+  </div>
+
+  <div class="progress-bar" id="progressBar">
+    <div class="progress-bar-fill" id="progressFill"></div>
+  </div>
+
+  <button class="btn btn-primary" id="collectBtn">📋 Collect All Results</button>
+
+  <div id="exportSection">
+    <hr class="divider">
+    <p class="stat" id="recordStat"></p>
+    <button class="btn btn-csv" id="csvBtn">⬇ Export as CSV</button>
+    <button class="btn btn-xml" id="xmlBtn">⬇ Export as XML</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
