@@ -3,10 +3,11 @@
   "name": "ManageMyHealth - Labs",
   "short_name": "MMH Labs",
   "version": "1.0",
-  "description": "Copy your lab results from Manage My Health as CSV or XML. Does not include patient name, date of birth, NHI number, or STI/STD results.",
+  "description": "Copy your lab results from ManageMyHealth as CSV or XML. Does not include patient name, DOB, NHI number, or STI/STD results.",
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "downloads"
   ],
   "host_permissions": [
     "https://app.managemyhealth.co.nz/*"
